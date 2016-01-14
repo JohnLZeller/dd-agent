@@ -14,6 +14,7 @@ class GraphiteServer(TCPServer):
         log.warn('Graphite listener is started -- if you do not need graphite, turn it off in datadog.conf.')
         log.warn('Graphite relay uses pickle to transport messages. Pickle is not secured against remote execution exploits.')
         log.warn('See http://blog.nelhage.com/2011/03/exploiting-pickle/ for more details')
+        log.debug('Server is initialized.')
         self.app = app
         self.hostname = hostname
         TCPServer.__init__(self, io_loop=io_loop, ssl_options=ssl_options, **kwargs)
